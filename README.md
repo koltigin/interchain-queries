@@ -131,4 +131,66 @@ Sent batch of 2 (deduplicated) messages
 **Form**
 > https://docs.google.com/forms/d/e/1FAIpQLSeoZEC5kd89KCQSJjn5Zpf-NQPX-Gc8ERjTIChK1BEbiVfMVQ/viewform
 
-### Herkese Başarılar Dilerim.
+
+### Repoyu Forklama
+
+https://github.com/Stride-Labs/interchain-queries
+
+![image](https://user-images.githubusercontent.com/107190154/186484524-26d30412-bc05-4e21-abd4-b36c90acb94e.png)
+
+**Forkladıktan sonra kendi profilimizde gözükecektir. Üstüne tıklayıp açıyoruz ve add file diyoruz `config.yaml` isimli dosya oluşturuyoruz.**
+
+![image](https://user-images.githubusercontent.com/107190154/186484894-47de1d29-a473-4ba4-96ee-f54b83207c13.png)
+
+**Dosyanın içine az önce düzenlediğimiz yapılandırma ayarını gireceğiz.
+> Bunu direkt girmeyeceksiniz. Kendi bilgilerinize göre revize edip add file dedikten sonra `config.yaml` adlı dosyanın içine yazacaksınız.
+```
+default_chain: stride-testnet
+chains:
+  gaia-testnet:
+    key: cüzdanisminiz
+    chain-id: GAIA
+    rpc-addr: http://127.0.0.1:buraya      # Gaia RPC yazacağız
+    grpc-addr: http://127.0.0.1:buraya     # Gaia GRPC yazacağız
+    account-prefix: cosmos
+    keyring-backend: test
+    gas-adjustment: 1.2
+    gas-prices: 0.001uatom
+    key-directory: /root/.icq/keys
+    debug: false
+    timeout: 20s
+    block-timeout: ""
+    output-format: json
+    sign-mode: direct
+  stride-testnet:
+    key: cüzdanisminiz
+    chain-id: STRIDE-TESTNET-4
+    rpc-addr: http://127.0.0.1:buraya      # Stride RPC yazacağız
+    grpc-addr: http://127.0.0.1:buraya     # Stride GRPC yazacağıze
+    account-prefix: stride
+    keyring-backend: test
+    gas-adjustment: 1.2
+    gas-prices: 0.001ustrd
+    key-directory: /root/.icq/keys
+    debug: false
+    timeout: 20s
+    block-timeout: ""
+    output-format: json
+    sign-mode: direct
+cl: {}
+```
+
+** İşlem bu kadar.**
+
+### Icq Silme Komutu
+```
+sudo systemctl stop icqd
+sudo systemctl disable icqd
+sudo rm /etc/systemd/system/icqd* -rf
+sudo rm $(which icq) -rf
+sudo rm -rf $HOME/.icq
+sudo rm -rf $HOME/interchain-queries
+```
+
+
+### Herkese Başarılar Dilerim
